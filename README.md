@@ -9,22 +9,22 @@ Public repository of our work in Decision-level Sensor Dropout in combination wi
 
 ### Training
 
-* To train the our novel DSensD+ (decision-level sensor dropout with mutual distillation) run
+* To train the our novel **DSensD+** (decision-level sensor dropout with mutual distillation) run
 ```
 python train_multi.py -s config/dsensdp_ex.yaml
 ```
 
-* To train the our DSensD (decision-level sensor dropout) run
+* To train the our **DSensD** (decision-level sensor dropout) run
 ```
 python train_multi.py -s config/dsensd_ex.yaml
 ```
 
-* To train the baseline FSensD (feature-level sensor dropout) run
+* To train the baseline **FSensD** (feature-level sensor dropout) run
 ```
 python train_multi.py -s config/fsensd_ex.yaml
 ```
 
-* To train the baseline ISensD (input-level sensor dropout) run
+* To train the baseline **ISensD** (input-level sensor dropout) run
 ```
 python train_single.py -s config/isensd_ex.yaml
 ```
@@ -54,5 +54,5 @@ pip install -r requirements.txt
 
 # 🖊️ Citation
 
-Mena, Francisco, et al. "*Multi-sensor Model for Earth Observation Robust to Missing Data via Sensor Dropout and Mutual Distillation*." IEEE Access, 2025.
+Mena, Francisco, et al. "*Multi-sensor Model for Earth Observation Robust to Missing Data via Sensor Dropout and Mutual Distillation*." Accepted at IEEE Access, 2025.
 
