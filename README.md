@@ -1,9 +1,9 @@
-# DSensD+: Decision-level Sensor Dropout in combination with Mutual Distillation for classification tasks in Earth observation
+# DSensD+: Decision-level Sensor Dropout in combination with Mutual Distillation for classification tasks
 
-Public repository of our work "Multi-sensor Model for Earth Observation Robust to Missing Data via Sensor Dropout and Mutual Distillation",
+> Public repository of our work "*Multi-sensor Model for Earth Observation Robust to Missing Data via Sensor Dropout and Mutual Distillation*"
 
 ![dsensdp](imgs/dsensdp_model.png)
-In the previous image is **DSensD+**, while in our work we also introduce **DSensD**, a simplified version only with Sensor Dropout at the decision-level. 
+In the previous image is **DSensD+**, while in our research work we also introduce **DSensD**, a simplified version only with Sensor Dropout at the decision-level. We focus and validate in classification tasks in the Earth observation domain.
 
 > [!NOTE]  
 > Read about the used data in [data folder](./data)
