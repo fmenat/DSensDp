@@ -1,0 +1,13 @@
+output_dir_folder: ./res_out
+input_dir_folder: /path/to/data
+
+task_type: classification
+#task_type: multilabel
+
+#data_name: cropharvest_binary
+data_name: cropharvest_multi
+#data_name: treesat_train
+
+methods_to_plot: null #consider all
+
+load_memory: True

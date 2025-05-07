@@ -1,0 +1,94 @@
+output_dir_folder: ./res_out
+input_dir_folder: /path/to/data
+
+load_memory: True
+data_name: cropharvest_multi
+task_type: classification
+
+training:
+  max_epochs: 2
+  batch_size: 256
+  emb_dim: 128
+  early_stop_args:
+    min_delta: 0.01
+    mode: min
+    patience: 5
+    verbose: True
+  parallel_processes: 1
+
+  additional_args:
+    optimizer: adam 
+    lr: 0.001
+  
+  missing_as_aug: True
+  missing_method:
+    random_perc: 0.5
+    name: ignore 
+
+experiment: 
+  runs_seed: [10] #repetitions
+  kfolds: 2
+  preprocess: 
+    fillnan: False
+    flatten: False
+    form: zscore  
+    view_names: ["S2_S2VI","S1" ,"weather","DEM"]
+
+args_forward: #only for testing
+  list_testing_views: [
+    [ ["S2_S2VI"], [1.00] ] , #single-view prediction
+    [ ["S1"], [1.00] ] , #single-view prediction
+    [ ["weather"], [1.00] ] , #single-view prediction
+    [ ["DEM"], [1.00] ] , #single-view prediction
+    [ ["S2_S2VI", "weather", "DEM"], [1.0] ], #multi-view prediction
+    [ ["S2_S2VI", "S1", "DEM"], [1.0] ], #multi-view prediction
+    [ ["S2_S2VI", "S1", "weather"], [1.0] ], #multi-view prediction
+    [ ["S1", "weather", "DEM"], [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 , 0.9, 1.00] ], #only missing S2 in different rates
+  ]
+  batch_size: 64
+
+
+architecture:
+  encoders:
+    S1:
+      model_type: tempcnn
+      dropout: 0.2
+      kernel_size: 5 #default value: 5
+      layer_size: 128 #default value: 128
+      n_layers: 2 #default value: 3
+      seq_len: 12
+      use_norm: True
+    S2_S2VI:
+      model_type: tempcnn
+      dropout: 0.2
+      kernel_size: 5 #default value: 5
+      layer_size: 128 #default value: 128
+      n_layers: 2 #default value: 3
+      seq_len: 12
+      use_norm: True
+    weather: 
+      model_type: tempcnn
+      dropout: 0.2
+      kernel_size: 5 #default value: 5
+      layer_size: 128 #default value: 128
+      n_layers: 2 #default value: 3
+      seq_len: 12
+      use_norm: True
+    DEM: 
+      model_type: mlp
+      n_layers: 1
+      layer_size: 128
+      dropout: 0.2
+      batchnorm: False
+      use_norm: True
+
+  predictive_model:
+    n_layers: 1
+    layer_size: 128
+    dropout: 0.2
+    batchnorm: True
+
+method: #fusion method
+  feature: True
+  agg_args:
+    mode: avg

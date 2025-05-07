@@ -1,0 +1,8 @@
+h5netcdf==1.1.0
+netCDF4==1.7.1.post1
+pandas==2.0.2
+torch==2.0.0+cu118
+torchaudio==2.0.1
+torchmetrics==0.11.4
+torchvision==0.15.1+cu118
+tqdm==4.65.0
