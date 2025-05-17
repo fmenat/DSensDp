@@ -63,6 +63,8 @@ Mena, Francisco, et al. "*Multi-sensor Model for Earth Observation Robust to Mis
   year = {2025},
   doi = {10.1109/ACCESS.2025.3568706},
   publisher={IEEE},
+  volume={13},
+  pages={83930 -- 83943},
 }
 ```
 
